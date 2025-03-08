@@ -1,1109 +1,369 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+To fix the issue of your HTML file displaying as source code instead of rendering correctly, you need to ensure the following:
+
+1. **Correct HTML Structure**: Your HTML structure should use the correct doctype and tags for HTML5. Currently, your doctype is set to HTML 4.01, which may cause issues.
+2. **File Extension**: Ensure the file has a `.html` extension.
+3. **Server Configuration**: Make sure your web server is configured to serve HTML files correctly.
+
+Here's a revised version of your HTML file using HTML5 doctype:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2113.65">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-    span.s1 {font: 12.0px 'PingFang SC'}
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>每日英语单词学习</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- PDF.js库用于处理PDF文件 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+  <script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#5D5CDE',
+          },
+        },
+      },
+    };
+  </script>
 </head>
-<body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;<span class="s1">每日英语单词学习</span>&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- PDF.js<span class="s1">库用于处理</span>PDF<span class="s1">文件</span> --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>tailwind.config = {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>darkMode: 'class',</p>
-<p class="p1"><span class="Apple-converted-space">            </span>theme: {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>extend: {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>colors: {</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>primary: '#5D5CDE',</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>},</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body class="min-h-screen bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-200"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Dark mode detection --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>if (window.matchMedia &amp;&amp; window.matchMedia('(prefers-color-scheme: dark)').matches) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.documentElement.classList.add('dark');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (event.matches) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>document.documentElement.classList.add('dark');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>document.documentElement.classList.remove('dark');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>});</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container mx-auto px-4 py-8 max-w-3xl"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;header class="text-center mb-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1 class="text-3xl font-bold text-primary mb-2"&gt;<span class="s1">每日英语单词学习</span>&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-gray-600 dark:text-gray-400"&gt;<span class="s1">每天学习</span>5<span class="s1">个新单词，提升您的英语能力</span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/header&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;main&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- App State Management --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="app-screens"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Initial Screen --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="upload-screen" class="space-y-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h2 class="text-xl font-semibold mb-4"&gt;<span class="s1">上传您的</span>PDF<span class="s1">文件</span>&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="mb-4"&gt;<span class="s1">上传一个英语</span>PDF<span class="s1">文件，我们将从中提取单词用于每日学习。</span>&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                        </span></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="mb-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;label class="block text-gray-700 dark:text-gray-300 mb-2"&gt;<span class="s1">选择</span>PDF<span class="s1">文件</span>&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;input type="file" id="pdf-upload" accept="application/pdf" class="block w-full text-base file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-white hover:file:bg-primary/90"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex justify-center gap-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button id="process-btn" class="bg-primary hover:bg-primary/90 text-white py-2 px-6 rounded-md font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed" disabled&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span><span class="s1">处理</span>PDF</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button id="debug-btn" class="bg-green-600 hover:bg-green-700 text-white py-2 px-6 rounded-md font-medium transition-colors"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span><span class="s1">使用示例数据</span></p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                        </span></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div id="error-messages" class="mt-4 text-red-600 dark:text-red-400 text-sm"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h2 class="text-xl font-semibold mb-4"&gt;<span class="s1">使用方法</span>&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;ol class="list-decimal ml-6 space-y-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;<span class="s1">上传您的英语</span>PDF<span class="s1">文档</span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;<span class="s1">系统会提取有用的英语单词</span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;<span class="s1">每天学习</span>5<span class="s1">个新单词</span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;<span class="s1">完成听写和互动练习</span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;<span class="s1">跟踪您的学习进度</span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;<span class="s1">收藏喜欢的单词以便复习</span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/ol&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Processing Screen --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="processing-screen" class="hidden"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md text-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-primary mx-auto mb-4"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h2 class="text-xl font-semibold mb-2"&gt;<span class="s1">正在处理您的</span>PDF&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p id="processing-message"&gt;<span class="s1">正在从文档中提取单词</span>...&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div id="processing-progress" class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5 mt-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div id="progress-bar-processing" class="bg-primary h-2.5 rounded-full transition-all duration-300" style="width: 0%"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p id="processing-status" class="mt-2 text-sm text-gray-600 dark:text-gray-400"&gt;<span class="s1">正在读取</span>PDF...&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Word Practice Screen --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="practice-screen" class="hidden space-y-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex justify-between items-center mb-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h2 class="text-xl font-semibold"&gt;<span class="s1">今日单词</span>&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="text-sm text-gray-600 dark:text-gray-400"&gt;<span class="s1">第</span> &lt;span id="current-day"&gt;1&lt;/span&gt; <span class="s1">天</span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                        </span></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div id="word-list" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;!-- Word cards will be inserted here --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex flex-wrap justify-center gap-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button id="practice-dictation" class="bg-primary hover:bg-primary/90 text-white py-2 px-6 rounded-md font-medium transition-colors"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span><span class="s1">听写练习</span></p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button id="practice-interactive" class="bg-primary hover:bg-primary/90 text-white py-2 px-6 rounded-md font-medium transition-colors"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span><span class="s1">互动练习</span></p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button id="view-favorites" class="border border-primary text-primary hover:bg-primary/10 py-2 px-6 rounded-md font-medium transition-colors"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span><span class="s1">收藏单词</span> &lt;span id="favorites-count" class="inline-block bg-primary/20 text-primary text-xs px-2 py-0.5 rounded-full ml-1"&gt;0&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button id="back-to-home" class="border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 py-2 px-6 rounded-md font-medium transition-colors"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span><span class="s1">返回首页</span></p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Progress Section --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h2 class="text-xl font-semibold mb-4"&gt;<span class="s1">学习进度</span>&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="mb-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="flex justify-between text-sm mb-1"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span&gt;<span class="s1">已学单词</span>&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span id="words-learned"&gt;0/0&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div id="progress-bar" class="bg-primary h-2.5 rounded-full" style="width: 0%"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div id="progress-message" class="text-sm text-gray-600 dark:text-gray-400 italic"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span><span class="s1">上传</span>PDF<span class="s1">以开始学习！</span></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Favorites Screen --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="favorites-screen" class="hidden space-y-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex justify-between items-center mb-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h2 class="text-xl font-semibold"&gt;<span class="s1">收藏的单词</span>&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button id="favorites-back" class="text-sm text-primary hover:underline"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span><span class="s1">返回学习</span></p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                        </span></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div id="favorites-list" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;!-- Favorite word cards will be inserted here --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                        </span></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div id="no-favorites" class="text-center py-8 text-gray-500 dark:text-gray-400 hidden"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p&gt;<span class="s1">您还没有收藏任何单词。</span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="mt-2"&gt;<span class="s1">学习时点击单词卡片上的星标图标来收藏单词。</span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Dictation Exercise Screen --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="dictation-screen" class="hidden space-y-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h2 class="text-xl font-semibold mb-4"&gt;<span class="s1">听写练习</span>&lt;/h2&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                        </span></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="mb-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="mb-2"&gt;<span class="s1">听单词发音，然后输入您听到的内容：</span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="flex justify-center mb-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;button id="play-audio" class="bg-primary hover:bg-primary/90 text-white py-2 px-6 rounded-md font-medium transition-colors"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block" viewBox="0 0 20 20" fill="currentColor"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span><span class="s1">播放声音</span></p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                            </span></p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="mb-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;input type="text" id="dictation-input" class="w-full text-base p-3 border border-gray-300 dark:border-gray-700 rounded-md bg-white dark:bg-gray-800" placeholder="<span class="s1">输入您听到的单词</span>..."&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                            </span></p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="flex justify-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;button id="check-dictation" class="bg-primary hover:bg-primary/90 text-white py-2 px-6 rounded-md font-medium transition-colors"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span><span class="s1">检查答案</span></p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                        </span></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div id="dictation-feedback" class="hidden p-4 rounded-md mb-4"&gt;&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                        </span></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex justify-between"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button id="dictation-back" class="border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 py-2 px-4 rounded-md font-medium transition-colors"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span><span class="s1">返回单词列表</span></p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button id="dictation-next" class="bg-primary hover:bg-primary/90 text-white py-2 px-6 rounded-md font-medium transition-colors hidden"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span><span class="s1">下一个单词</span></p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- Interactive Exercise Screen --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="interactive-screen" class="hidden space-y-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h2 class="text-xl font-semibold mb-4"&gt;<span class="s1">互动练习</span>&lt;/h2&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                        </span></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div id="exercise-container" class="mb-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;!-- Exercise content will be inserted here --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                        </span></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div id="interactive-feedback" class="hidden p-4 rounded-md mb-4"&gt;&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                        </span></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex justify-between"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button id="interactive-back" class="border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 py-2 px-4 rounded-md font-medium transition-colors"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span><span class="s1">返回单词列表</span></p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button id="interactive-submit" class="bg-primary hover:bg-primary/90 text-white py-2 px-6 rounded-md font-medium transition-colors"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span><span class="s1">提交答案</span></p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Audio Element for Dictation --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;audio id="word-audio" class="hidden"&gt;&lt;/audio&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/main&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;footer class="mt-12 text-center text-sm text-gray-600 dark:text-gray-400"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;<span class="s1">每日英语单词学习</span> | &lt;a href="https://github.com/yourusername/english-learning-app" target="_blank" class="hover:underline"&gt;GitHub<span class="s1">开源项目</span>&lt;/a&gt;&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/footer&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Global error handler</p>
-<p class="p1"><span class="Apple-converted-space">        </span>window.onerror = function(message, source, lineno, colno, error) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>console.error('<span class="s1">全局错误</span>:', message, 'at', source, lineno, colno);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const errorEl = document.getElementById('error-messages');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (errorEl) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>errorEl.innerHTML += `&lt;div&gt;<span class="s1">错误</span>: ${message}&lt;/div&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>return true;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>};</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Application state</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const appState = {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>words: [],</p>
-<p class="p1"><span class="Apple-converted-space">            </span>currentDay: 1,</p>
-<p class="p1"><span class="Apple-converted-space">            </span>wordsPerDay: 5,</p>
-<p class="p1"><span class="Apple-converted-space">            </span>currentWordIndex: 0,</p>
-<p class="p1"><span class="Apple-converted-space">            </span>todaysWords: [],</p>
-<p class="p1"><span class="Apple-converted-space">            </span>learnedWords: 0,</p>
-<p class="p1"><span class="Apple-converted-space">            </span>pdfFile: null,</p>
-<p class="p1"><span class="Apple-converted-space">            </span>pdfProcessed: false,</p>
-<p class="p1"><span class="Apple-converted-space">            </span>audioLoading: false,</p>
-<p class="p1"><span class="Apple-converted-space">            </span>currentExercise: null,</p>
-<p class="p1"><span class="Apple-converted-space">            </span>favorites: []</p>
-<p class="p1"><span class="Apple-converted-space">        </span>};</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Sample data for debugging</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const sampleWords = [</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{</p>
-<p class="p1"><span class="Apple-converted-space">                </span>"word": "abundant",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>"pos": "adjective",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>"definition": "existing or available in large quantities; plentiful",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>"phonetic": "/əˈbʌndənt/"</p>
-<p class="p1"><span class="Apple-converted-space">            </span>},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{</p>
-<p class="p1"><span class="Apple-converted-space">                </span>"word": "acquire",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>"pos": "verb",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>"definition": "to get or gain possession of something",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>"phonetic": "/əˈkwaɪər/"</p>
-<p class="p1"><span class="Apple-converted-space">            </span>},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{</p>
-<p class="p1"><span class="Apple-converted-space">                </span>"word": "adapt",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>"pos": "verb",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>"definition": "to make suitable for a new use or purpose; modify",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>"phonetic": "/əˈdæpt/"</p>
-<p class="p1"><span class="Apple-converted-space">            </span>},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{</p>
-<p class="p1"><span class="Apple-converted-space">                </span>"word": "analyze",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>"pos": "verb",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>"definition": "to examine methodically by separating into parts and studying their interrelations",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>"phonetic": "/ˈænəlaɪz/"</p>
-<p class="p1"><span class="Apple-converted-space">            </span>},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{</p>
-<p class="p1"><span class="Apple-converted-space">                </span>"word": "approach",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>"pos": "noun",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>"definition": "a way of dealing with something; a method",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>"phonetic": "/əˈproʊtʃ/"</p>
-<p class="p1"><span class="Apple-converted-space">            </span>},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{</p>
-<p class="p1"><span class="Apple-converted-space">                </span>"word": "benefit",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>"pos": "noun",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>"definition": "an advantage or profit gained from something",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>"phonetic": "/ˈbɛnɪfɪt/"</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>];</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// DOM Elements</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const elements = {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>screens: {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>upload: document.getElementById('upload-screen'),</p>
-<p class="p1"><span class="Apple-converted-space">                </span>processing: document.getElementById('processing-screen'),</p>
-<p class="p1"><span class="Apple-converted-space">                </span>practice: document.getElementById('practice-screen'),</p>
-<p class="p1"><span class="Apple-converted-space">                </span>dictation: document.getElementById('dictation-screen'),</p>
-<p class="p1"><span class="Apple-converted-space">                </span>interactive: document.getElementById('interactive-screen'),</p>
-<p class="p1"><span class="Apple-converted-space">                </span>favorites: document.getElementById('favorites-screen')</p>
-<p class="p1"><span class="Apple-converted-space">            </span>},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>pdfUpload: document.getElementById('pdf-upload'),</p>
-<p class="p1"><span class="Apple-converted-space">            </span>processBtn: document.getElementById('process-btn'),</p>
-<p class="p1"><span class="Apple-converted-space">            </span>debugBtn: document.getElementById('debug-btn'),</p>
-<p class="p1"><span class="Apple-converted-space">            </span>errorMessages: document.getElementById('error-messages'),</p>
-<p class="p1"><span class="Apple-converted-space">            </span>wordList: document.getElementById('word-list'),</p>
-<p class="p1"><span class="Apple-converted-space">            </span>currentDay: document.getElementById('current-day'),</p>
-<p class="p1"><span class="Apple-converted-space">            </span>wordsLearned: document.getElementById('words-learned'),</p>
-<p class="p1"><span class="Apple-converted-space">            </span>progressBar: document.getElementById('progress-bar'),</p>
-<p class="p1"><span class="Apple-converted-space">            </span>progressMessage: document.getElementById('progress-message'),</p>
-<p class="p1"><span class="Apple-converted-space">            </span>processingMessage: document.getElementById('processing-message'),</p>
-<p class="p1"><span class="Apple-converted-space">            </span>processingProgress: document.getElementById('progress-bar-processing'),</p>
-<p class="p1"><span class="Apple-converted-space">            </span>processingStatus: document.getElementById('processing-status'),</p>
-<p class="p1"><span class="Apple-converted-space">            </span>practiceDict: document.getElementById('practice-dictation'),</p>
-<p class="p1"><span class="Apple-converted-space">            </span>practiceInteractive: document.getElementById('practice-interactive'),</p>
-<p class="p1"><span class="Apple-converted-space">            </span>viewFavorites: document.getElementById('view-favorites'),</p>
-<p class="p1"><span class="Apple-converted-space">            </span>favoritesCount: document.getElementById('favorites-count'),</p>
-<p class="p1"><span class="Apple-converted-space">            </span>favoritesList: document.getElementById('favorites-list'),</p>
-<p class="p1"><span class="Apple-converted-space">            </span>favoritesBack: document.getElementById('favorites-back'),</p>
-<p class="p1"><span class="Apple-converted-space">            </span>noFavorites: document.getElementById('no-favorites'),</p>
-<p class="p1"><span class="Apple-converted-space">            </span>playAudio: document.getElementById('play-audio'),</p>
-<p class="p1"><span class="Apple-converted-space">            </span>dictationInput: document.getElementById('dictation-input'),</p>
-<p class="p1"><span class="Apple-converted-space">            </span>dictationFeedback: document.getElementById('dictation-feedback'),</p>
-<p class="p1"><span class="Apple-converted-space">            </span>checkDictation: document.getElementById('check-dictation'),</p>
-<p class="p1"><span class="Apple-converted-space">            </span>dictationBack: document.getElementById('dictation-back'),</p>
-<p class="p1"><span class="Apple-converted-space">            </span>dictationNext: document.getElementById('dictation-next'),</p>
-<p class="p1"><span class="Apple-converted-space">            </span>exerciseContainer: document.getElementById('exercise-container'),</p>
-<p class="p1"><span class="Apple-converted-space">            </span>interactiveFeedback: document.getElementById('interactive-feedback'),</p>
-<p class="p1"><span class="Apple-converted-space">            </span>interactiveBack: document.getElementById('interactive-back'),</p>
-<p class="p1"><span class="Apple-converted-space">            </span>interactiveSubmit: document.getElementById('interactive-submit'),</p>
-<p class="p1"><span class="Apple-converted-space">            </span>wordAudio: document.getElementById('word-audio')</p>
-<p class="p1"><span class="Apple-converted-space">        </span>};</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Helper functions</p>
-<p class="p1"><span class="Apple-converted-space">        </span>function showScreen(screenId) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>Object.keys(elements.screens).forEach(key =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.screens[key].classList.add('hidden');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.screens[screenId].classList.remove('hidden');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function updateProgressUI() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.currentDay.textContent = appState.currentDay;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.wordsLearned.textContent = `${appState.learnedWords}/${appState.words.length}`;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>const progressPercentage = appState.words.length &gt; 0<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>? (appState.learnedWords / appState.words.length) * 100<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.progressBar.style.width = `${progressPercentage}%`;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (appState.words.length &gt; 0) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const remainingWords = appState.words.length - appState.learnedWords;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const daysLeft = Math.ceil(remainingWords / appState.wordsPerDay);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.progressMessage.textContent = `<span class="s1">还剩</span> ${remainingWords} <span class="s1">个单词（约</span> ${daysLeft} <span class="s1">天的练习）</span>`;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function renderTodaysWords() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.wordList.innerHTML = '';</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Calculate start index for today's words</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const startIndex = (appState.currentDay - 1) * appState.wordsPerDay;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Get today's words, limited to available words</p>
-<p class="p1"><span class="Apple-converted-space">            </span>appState.todaysWords = appState.words.slice(startIndex, startIndex + appState.wordsPerDay);</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Display today's words</p>
-<p class="p1"><span class="Apple-converted-space">            </span>appState.todaysWords.forEach((wordObj, index) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const isFavorite = appState.favorites.some(fav =&gt; fav.word === wordObj.word);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const wordCard = document.createElement('div');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>wordCard.className = 'bg-gray-100 dark:bg-gray-700 p-4 rounded-md relative';</p>
-<p class="p1"><span class="Apple-converted-space">                </span>wordCard.innerHTML = `</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="font-medium text-lg mb-1"&gt;${wordObj.word}&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-gray-600 dark:text-gray-400 text-sm mb-2"&gt;${wordObj.phonetic || ''}&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="mb-1"&gt;&lt;span class="text-xs font-medium bg-primary/20 text-primary px-2 py-0.5 rounded"&gt;${wordObj.pos}&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-sm"&gt;${wordObj.definition}&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="favorite-btn absolute top-3 right-3 text-gray-400 dark:text-gray-500 hover:text-yellow-500 dark:hover:text-yellow-400 transition-colors ${isFavorite ? 'text-yellow-500 dark:text-yellow-400' : ''}" data-word="${wordObj.word}"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>`;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.wordList.appendChild(wordCard);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Add event listeners to favorite buttons</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.querySelectorAll('.favorite-btn').forEach(btn =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>btn.addEventListener('click', toggleFavorite);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Update progress UI</p>
-<p class="p1"><span class="Apple-converted-space">            </span>updateProgressUI();</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function toggleFavorite(e) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const btn = e.currentTarget;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const word = btn.getAttribute('data-word');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const wordIndex = appState.words.findIndex(w =&gt; w.word === word);</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (wordIndex === -1) return;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>const wordObj = appState.words[wordIndex];</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const favIndex = appState.favorites.findIndex(fav =&gt; fav.word === word);</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (favIndex === -1) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>// Add to favorites</p>
-<p class="p1"><span class="Apple-converted-space">                </span>appState.favorites.push(wordObj);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>btn.classList.add('text-yellow-500', 'dark:text-yellow-400');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>btn.classList.remove('text-gray-400', 'dark:text-gray-500');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>// Remove from favorites</p>
-<p class="p1"><span class="Apple-converted-space">                </span>appState.favorites.splice(favIndex, 1);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>btn.classList.remove('text-yellow-500', 'dark:text-yellow-400');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>btn.classList.add('text-gray-400', 'dark:text-gray-500');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Update favorites count</p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.favoritesCount.textContent = appState.favorites.length;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Save favorites to localStorage</p>
-<p class="p1"><span class="Apple-converted-space">            </span>saveToLocalStorage('english_practice_favorites', appState.favorites);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function renderFavorites() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.favoritesList.innerHTML = '';</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (appState.favorites.length === 0) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.noFavorites.classList.remove('hidden');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.noFavorites.classList.add('hidden');</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Display favorite words</p>
-<p class="p1"><span class="Apple-converted-space">            </span>appState.favorites.forEach((wordObj) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const wordCard = document.createElement('div');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>wordCard.className = 'bg-gray-100 dark:bg-gray-700 p-4 rounded-md relative';</p>
-<p class="p1"><span class="Apple-converted-space">                </span>wordCard.innerHTML = `</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="font-medium text-lg mb-1"&gt;${wordObj.word}&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-gray-600 dark:text-gray-400 text-sm mb-2"&gt;${wordObj.phonetic || ''}&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="mb-1"&gt;&lt;span class="text-xs font-medium bg-primary/20 text-primary px-2 py-0.5 rounded"&gt;${wordObj.pos}&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-sm"&gt;${wordObj.definition}&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="remove-favorite-btn absolute top-3 right-3 text-yellow-500 dark:text-yellow-400 hover:text-red-500 dark:hover:text-red-400 transition-colors" data-word="${wordObj.word}"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>`;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.favoritesList.appendChild(wordCard);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Add event listeners to remove favorite buttons</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.querySelectorAll('.remove-favorite-btn').forEach(btn =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>btn.addEventListener('click', removeFavorite);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function removeFavorite(e) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const btn = e.currentTarget;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const word = btn.getAttribute('data-word');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const favIndex = appState.favorites.findIndex(fav =&gt; fav.word === word);</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (favIndex === -1) return;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Remove from favorites</p>
-<p class="p1"><span class="Apple-converted-space">            </span>appState.favorites.splice(favIndex, 1);</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Update UI</p>
-<p class="p1"><span class="Apple-converted-space">            </span>renderFavorites();</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Update favorites count</p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.favoritesCount.textContent = appState.favorites.length;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Save favorites to localStorage</p>
-<p class="p1"><span class="Apple-converted-space">            </span>saveToLocalStorage('english_practice_favorites', appState.favorites);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function loadWordData(wordsData) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>appState.words = wordsData;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>appState.pdfProcessed = true;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>appState.currentDay = 1;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>appState.learnedWords = 0;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Set up the practice screen</p>
-<p class="p1"><span class="Apple-converted-space">            </span>renderTodaysWords();</p>
-<p class="p1"><span class="Apple-converted-space">            </span>showScreen('practice');</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Save to localStorage</p>
-<p class="p1"><span class="Apple-converted-space">            </span>saveToLocalStorage('english_practice_words', appState.words);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>saveToLocalStorage('english_practice_day', appState.currentDay);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>saveToLocalStorage('english_practice_learned', appState.learnedWords);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Free Dictionary API</p>
-<p class="p1"><span class="Apple-converted-space">        </span>async function fetchWordData(word) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>try {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>if (!response.ok) {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>throw new Error('<span class="s1">无法获取单词数据</span>');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const data = await response.json();</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>if (data &amp;&amp; data.length &gt; 0) {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>const entry = data[0];</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>const meanings = entry.meanings || [];</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>let pos = "unknown";</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>let definition = "No definition available";</p>
-<p class="p2"><span class="Apple-converted-space">                    </span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>if (meanings.length &gt; 0) {</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>pos = meanings[0].partOfSpeech || "unknown";</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>if (meanings[0].definitions &amp;&amp; meanings[0].definitions.length &gt; 0) {</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>definition = meanings[0].definitions[0].definition;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
-<p class="p2"><span class="Apple-converted-space">                    </span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>return {</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>word: word,</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>pos: pos,</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>definition: definition,</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>phonetic: entry.phonetic || ""</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>};</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>return null;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>} catch (error) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>console.error("Error fetching word data:", error);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>return null;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// PDF Processing Functions</p>
-<p class="p1"><span class="Apple-converted-space">        </span>async function processPdfFile(file) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.processingStatus.textContent = "<span class="s1">正在加载</span>PDF<span class="s1">文件</span>...";</p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.processingProgress.style.width = "10%";</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>try {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>// Read PDF file</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const arrayBuffer = await readFileAsArrayBuffer(file);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.processingStatus.textContent = "<span class="s1">正在解析</span>PDF...";</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.processingProgress.style.width = "20%";</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>// Load PDF using PDF.js</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const pdf = await pdfjsLib.getDocument({data: arrayBuffer}).promise;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const numPages = pdf.numPages;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.processingStatus.textContent = `PDF<span class="s1">解析完成，共</span> ${numPages} <span class="s1">页</span>`;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.processingProgress.style.width = "30%";</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>// Extract text from PDF</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.processingStatus.textContent = "<span class="s1">正在提取文本</span>...";</p>
-<p class="p1"><span class="Apple-converted-space">                </span>let allText = '';</p>
-<p class="p1"><span class="Apple-converted-space">                </span>for (let i = 1; i &lt;= numPages; i++) {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>elements.processingStatus.textContent = `<span class="s1">正在提取文本</span> (${i}/${numPages})...`;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>const page = await pdf.getPage(i);</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>const textContent = await page.getTextContent();</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>const pageText = textContent.items.map(item =&gt; item.str).join(' ');</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>allText += pageText + ' ';</p>
-<p class="p2"><span class="Apple-converted-space">                    </span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>// Update progress</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>const extractionProgress = 30 + (i / numPages) * 20;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>elements.processingProgress.style.width = `${extractionProgress}%`;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>// Extract unique words</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.processingStatus.textContent = "<span class="s1">正在提取英语单词</span>...";</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.processingProgress.style.width = "50%";</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const words = extractEnglishWords(allText);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.processingStatus.textContent = `<span class="s1">找到</span> ${words.length} <span class="s1">个单词候选</span>`;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.processingProgress.style.width = "60%";</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>// Filter and limit words</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const finalWords = await processFinalWordsList(words);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.processingStatus.textContent = "<span class="s1">处理完成</span>!";</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.processingProgress.style.width = "100%";</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>return finalWords;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>} catch (error) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>console.error("<span class="s1">处理</span>PDF<span class="s1">时出错</span>:", error);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.processingStatus.textContent = "<span class="s1">处理</span>PDF<span class="s1">时出错，请重试</span>";</p>
-<p class="p1"><span class="Apple-converted-space">                </span>throw error;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function readFileAsArrayBuffer(file) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>return new Promise((resolve, reject) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const reader = new FileReader();</p>
-<p class="p1"><span class="Apple-converted-space">                </span>reader.onload = (e) =&gt; resolve(e.target.result);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>reader.onerror = (e) =&gt; reject(e);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>reader.readAsArrayBuffer(file);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function extractEnglishWords(text) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Remove special characters and split by spaces</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const cleanedText = text.replace(/[^\w\s]/g, ' ').toLowerCase();</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const allWords = cleanedText.split(/\s+/);</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Filter for English words (3+ characters, only letters)</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const englishPattern = /^[a-z]{3,15}$/;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>let filteredWords = allWords.filter(word =&gt; englishPattern.test(word));</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Remove common words and duplicates</p>
-<p class="p1"><span class="Apple-converted-space">            </span>filteredWords = filteredWords.filter(word =&gt; !isCommonWord(word));</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Get unique words</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const uniqueWords = [...new Set(filteredWords)];</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>return uniqueWords;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function isCommonWord(word) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const commonWords = [</p>
-<p class="p1"><span class="Apple-converted-space">                </span>'the', 'and', 'that', 'have', 'for', 'not', 'with', 'you', 'this',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>'but', 'his', 'from', 'they', 'say', 'her', 'she', 'will', 'one',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>'all', 'would', 'there', 'their', 'what', 'out', 'about', 'who',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>'get', 'which', 'when', 'make', 'can', 'like', 'time', 'just', 'him',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>'know', 'take', 'person', 'into', 'year', 'your', 'some', 'could',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>'them', 'see', 'other', 'than', 'then', 'now', 'look', 'only', 'come',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>'its', 'over', 'think', 'also', 'back', 'after', 'use', 'two', 'how',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>'our', 'work', 'first', 'well', 'way', 'even', 'new', 'want', 'because',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>'any', 'these', 'give', 'day', 'most', 'was', 'were', 'been', 'did'</p>
-<p class="p1"><span class="Apple-converted-space">            </span>];</p>
-<p class="p1"><span class="Apple-converted-space">            </span>return commonWords.includes(word);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>async function processFinalWordsList(words) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Shuffle array to get random words</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const shuffled = [...words].sort(() =&gt; 0.5 - Math.random());</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Take top words (limit to 50 for performance)</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const selectedWords = shuffled.slice(0, 50);</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Process in batches to avoid rate limiting</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const wordObjects = [];</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const batchSize = 5;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.processingStatus.textContent = `<span class="s1">正在获取单词释义</span> (0/${selectedWords.length})...`;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>for (let i = 0; i &lt; selectedWords.length; i += batchSize) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const batch = selectedWords.slice(i, i + batchSize);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const batchPromises = batch.map(async word =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>const wordData = await fetchWordData(word);</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>return wordData || {</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>word: word,</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>pos: "unknown",</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>definition: "No definition available",</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>phonetic: ""</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>};</p>
-<p class="p1"><span class="Apple-converted-space">                </span>});</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>const batchResults = await Promise.all(batchPromises);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>wordObjects.push(...batchResults.filter(w =&gt; w !== null));</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>// Update progress</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const lookupProgress = 60 + ((i + batch.length) / selectedWords.length) * 40;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.processingProgress.style.width = `${lookupProgress}%`;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.processingStatus.textContent = `<span class="s1">正在获取单词释义</span> (${Math.min(i + batch.length, selectedWords.length)}/${selectedWords.length})...`;</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>// Small delay to avoid rate limiting</p>
-<p class="p1"><span class="Apple-converted-space">                </span>await new Promise(resolve =&gt; setTimeout(resolve, 200));</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>return wordObjects;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>async function processPdfDirectly() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (!appState.pdfFile) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.errorMessages.innerHTML = '&lt;div&gt;<span class="s1">请先选择一个</span>PDF<span class="s1">文件</span>&lt;/div&gt;';</p>
-<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.errorMessages.innerHTML = '';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.processBtn.innerHTML = '<span class="s1">处理中</span>...';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.processBtn.disabled = true;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>showScreen('processing');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.processingMessage.textContent = '<span class="s1">正在分析您的</span>PDF<span class="s1">文件</span>...';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.processingProgress.style.width = "0%";</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>try {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>// Process the actual PDF file</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const wordsData = await processPdfFile(appState.pdfFile);</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>if (wordsData &amp;&amp; wordsData.length &gt; 0) {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>loadWordData(wordsData);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>throw new Error("<span class="s1">未能从</span>PDF<span class="s1">中提取有效单词</span>");</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.processBtn.innerHTML = '<span class="s1">处理</span>PDF';</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.processBtn.disabled = false;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>} catch (error) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>console.error('<span class="s1">处理</span>PDF<span class="s1">时出错</span>:', error);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.errorMessages.innerHTML = `&lt;div&gt;<span class="s1">错误</span>: ${error.message}&lt;/div&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.processBtn.innerHTML = '<span class="s1">处理</span>PDF';</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.processBtn.disabled = false;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>showScreen('upload');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Web Speech API for speech</p>
-<p class="p1"><span class="Apple-converted-space">        </span>function playWordAudio(word) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (!word) return;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Create utterance</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const utterance = new SpeechSynthesisUtterance(word);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>utterance.lang = 'en-US';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>utterance.rate = 0.8; // Slightly slower for learning</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Speak the word</p>
-<p class="p1"><span class="Apple-converted-space">            </span>speechSynthesis.speak(utterance);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Local Storage functions</p>
-<p class="p1"><span class="Apple-converted-space">        </span>function saveToLocalStorage(key, data) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>try {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>localStorage.setItem(key, JSON.stringify(data));</p>
-<p class="p1"><span class="Apple-converted-space">            </span>} catch (error) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>console.error('<span class="s1">无法保存到</span>localStorage:', error);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function loadFromLocalStorage(key) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>try {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const data = localStorage.getItem(key);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>return data ? JSON.parse(data) : null;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>} catch (error) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>console.error('<span class="s1">无法从</span>localStorage<span class="s1">加载</span>:', error);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>return null;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Event handlers for file upload</p>
-<p class="p1"><span class="Apple-converted-space">        </span>elements.pdfUpload.addEventListener('change', (e) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>appState.pdfFile = e.target.files[0];</p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.processBtn.disabled = !appState.pdfFile;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.errorMessages.innerHTML = '';</p>
-<p class="p1"><span class="Apple-converted-space">        </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Debug button - use sample data</p>
-<p class="p1"><span class="Apple-converted-space">        </span>elements.debugBtn.addEventListener('click', function() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.errorMessages.innerHTML = '';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>showScreen('processing');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.processingMessage.textContent = '<span class="s1">使用示例数据</span>...';</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>setTimeout(() =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>loadWordData(sampleWords);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}, 1500);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Process PDF button</p>
-<p class="p1"><span class="Apple-converted-space">        </span>elements.processBtn.addEventListener('click', processPdfDirectly);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Dictation practice</p>
-<p class="p1"><span class="Apple-converted-space">        </span>elements.practiceDict.addEventListener('click', () =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>appState.currentWordIndex = 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>setupDictationExercise();</p>
-<p class="p1"><span class="Apple-converted-space">            </span>showScreen('dictation');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function setupDictationExercise() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.dictationInput.value = '';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.dictationFeedback.classList.add('hidden');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.dictationNext.classList.add('hidden');</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Clear the play button state</p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.playAudio.innerHTML = `</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block" viewBox="0 0 20 20" fill="currentColor"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span><span class="s1">播放声音</span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>`;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.playAudio.disabled = false;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>elements.playAudio.addEventListener('click', () =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (appState.audioLoading) return;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>const currentWord = appState.todaysWords[appState.currentWordIndex];</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (!currentWord) return;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>try {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>appState.audioLoading = true;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.playAudio.innerHTML = `</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;svg class="animate-spin h-5 w-5 inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"&gt;&lt;/circle&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"&gt;&lt;/path&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span><span class="s1">加载中</span>...</p>
-<p class="p1"><span class="Apple-converted-space">                </span>`;</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>// Using Web Speech API</p>
-<p class="p1"><span class="Apple-converted-space">                </span>playWordAudio(currentWord.word);</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>// Update UI after a short delay</p>
-<p class="p1"><span class="Apple-converted-space">                </span>setTimeout(() =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>elements.playAudio.innerHTML = `</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block" viewBox="0 0 20 20" fill="currentColor"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span><span class="s1">再次播放</span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>`;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>appState.audioLoading = false;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}, 800);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>} catch (error) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>console.error("<span class="s1">获取音频出错</span>:", error);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.playAudio.innerHTML = `</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block" viewBox="0 0 20 20" fill="currentColor"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span><span class="s1">播放声音</span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>`;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>appState.audioLoading = false;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>elements.checkDictation.addEventListener('click', () =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const userInput = elements.dictationInput.value.trim().toLowerCase();</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const currentWord = appState.todaysWords[appState.currentWordIndex];</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (!currentWord) return;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>const isCorrect = userInput === currentWord.word.toLowerCase();</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.dictationFeedback.classList.remove('hidden', 'bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800');</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (isCorrect) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.dictationFeedback.classList.add('bg-green-100', 'text-green-800', 'dark:bg-green-900', 'dark:text-green-200');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.dictationFeedback.innerHTML = `</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="font-medium"&gt;<span class="s1">回答正确！</span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;${currentWord.word} - ${currentWord.definition}&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>`;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.dictationNext.classList.remove('hidden');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.dictationFeedback.classList.add('bg-red-100', 'text-red-800', 'dark:bg-red-900', 'dark:text-red-200');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.dictationFeedback.innerHTML = `</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="font-medium"&gt;<span class="s1">再试一次</span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;<span class="s1">您输入的是</span>: "${userInput}"&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>`;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>elements.dictationNext.addEventListener('click', () =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>appState.currentWordIndex++;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (appState.currentWordIndex &lt; appState.todaysWords.length) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>setupDictationExercise();</p>
-<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>// Completed all words for today</p>
-<p class="p1"><span class="Apple-converted-space">                </span>appState.learnedWords += appState.todaysWords.length;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>updateProgressUI();</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>// Save progress</p>
-<p class="p1"><span class="Apple-converted-space">                </span>saveToLocalStorage('english_practice_learned', appState.learnedWords);</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>showScreen('practice');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>elements.dictationBack.addEventListener('click', () =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>showScreen('practice');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Interactive practice</p>
-<p class="p1"><span class="Apple-converted-space">        </span>elements.practiceInteractive.addEventListener('click', async () =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>showScreen('interactive');</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Clear previous exercise</p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.exerciseContainer.innerHTML = `</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex justify-center items-center h-32"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-primary"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="ml-2"&gt;<span class="s1">正在生成练习</span>...&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>`;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.interactiveFeedback.classList.add('hidden');</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Generate an exercise based on today's words</p>
-<p class="p1"><span class="Apple-converted-space">            </span>generateInteractiveExercise(appState.todaysWords);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function generateInteractiveExercise(words) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const wordList = words.map(w =&gt; w.word);</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Create sentences for each word</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const sentences = words.map(word =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const options = [...wordList]; // Use all today's words as options</p>
-<p class="p1"><span class="Apple-converted-space">                </span>return {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>text: generateSentence(word.word),</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>options: options,</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>answer: word.word,</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>explanation: `${word.word} (${word.pos}): ${word.definition}`</p>
-<p class="p1"><span class="Apple-converted-space">                </span>};</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>setTimeout(() =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>renderInteractiveExercise({sentences});</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}, 1000);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function generateSentence(word) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Simple template sentences for different parts of speech</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const templates = {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>'noun': [</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"The ___ was an important part of the discussion.",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"She couldn't find the ___ she was looking for.",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"His ___ made a significant impact on the project."</p>
-<p class="p1"><span class="Apple-converted-space">                </span>],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>'verb': [</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"I need to ___ the task before the deadline.",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"They will ___ the problem tomorrow.",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"She couldn't ___ what happened next."</p>
-<p class="p1"><span class="Apple-converted-space">                </span>],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>'adjective': [</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"The ___ weather made our trip enjoyable.",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"They bought a ___ car last weekend.",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"The movie was quite ___ and worth watching."</p>
-<p class="p1"><span class="Apple-converted-space">                </span>],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>'default': [</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"The students need to understand how to ___ correctly.",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"The ___ was the main topic of the conversation.",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"I think we should ___ before making a decision."</p>
-<p class="p1"><span class="Apple-converted-space">                </span>]</p>
-<p class="p1"><span class="Apple-converted-space">            </span>};</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Find word in our word list to get part of speech</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const wordObj = appState.words.find(w =&gt; w.word === word);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const pos = wordObj?.pos || 'default';</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Select a template for this part of speech</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const posTemplates = templates[pos] || templates.default;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const template = posTemplates[Math.floor(Math.random() * posTemplates.length)];</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>return template;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function renderInteractiveExercise(exerciseData) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>let exerciseHTML = `</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="space-y-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-4"&gt;<span class="s1">使用正确的单词填空：</span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>`;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>exerciseData.sentences.forEach((sentence, index) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const sentenceParts = sentence.text.split('___');</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>exerciseHTML += `</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="mb-4 p-3 bg-gray-50 dark:bg-gray-700 rounded-md" data-index="${index}" data-answer="${sentence.answer}"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex flex-wrap items-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span&gt;${sentenceParts[0]}&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;select class="exercise-select mx-1 border border-gray-300 dark:border-gray-600 rounded-md p-1 bg-white dark:bg-gray-800"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;option value=""&gt;<span class="s1">选择单词</span>&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>${sentence.options.map(option =&gt; `&lt;option value="${option}"&gt;${option}&lt;/option&gt;`).join('')}</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/select&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span&gt;${sentenceParts[1]}&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="explanation hidden mt-2 text-sm"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>`;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>exerciseHTML += `&lt;/div&gt;`;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.exerciseContainer.innerHTML = exerciseHTML;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Store the exercise data for later validation</p>
-<p class="p1"><span class="Apple-converted-space">            </span>appState.currentExercise = exerciseData;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>elements.interactiveSubmit.addEventListener('click', () =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (!appState.currentExercise) return;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>const selects = document.querySelectorAll('.exercise-select');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>let allCorrect = true;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>let totalCorrect = 0;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>selects.forEach((select, index) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const sentenceElement = select.closest('[data-index]');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const correctAnswer = sentenceElement.getAttribute('data-answer');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const userAnswer = select.value;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const explanationElement = sentenceElement.querySelector('.explanation');</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>explanationElement.classList.remove('hidden');</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>if (userAnswer === correctAnswer) {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>totalCorrect++;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>sentenceElement.classList.add('bg-green-50', 'dark:bg-green-900/30');</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>explanationElement.textContent = appState.currentExercise.sentences[index].explanation;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>explanationElement.classList.add('text-green-600', 'dark:text-green-400');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>allCorrect = false;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>sentenceElement.classList.add('bg-red-50', 'dark:bg-red-900/30');</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>explanationElement.textContent = userAnswer<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>? `<span class="s1">不正确。正确答案是</span> "${correctAnswer}"<span class="s1">。</span>${appState.currentExercise.sentences[index].explanation}`</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>: `<span class="s1">请选择一个答案。正确答案是</span> "${correctAnswer}"<span class="s1">。</span>`;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>explanationElement.classList.add('text-red-600', 'dark:text-red-400');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Show feedback</p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.interactiveFeedback.classList.remove('hidden', 'bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800');</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (allCorrect) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.interactiveFeedback.classList.add('bg-green-100', 'text-green-800', 'dark:bg-green-900', 'dark:text-green-200');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.interactiveFeedback.innerHTML = `</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="font-medium"&gt;<span class="s1">太棒了！您全部答对了。</span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;<span class="s1">您已经掌握了今天的单词！</span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>`;</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>// Mark words as learned</p>
-<p class="p1"><span class="Apple-converted-space">                </span>appState.learnedWords += appState.todaysWords.length;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>updateProgressUI();</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>// Save progress</p>
-<p class="p1"><span class="Apple-converted-space">                </span>saveToLocalStorage('english_practice_learned', appState.learnedWords);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.interactiveFeedback.classList.add('bg-yellow-100', 'text-yellow-800', 'dark:bg-yellow-900', 'dark:text-yellow-200');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.interactiveFeedback.innerHTML = `</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="font-medium"&gt;<span class="s1">您答对了</span> ${totalCorrect} <span class="s1">个，共</span> ${selects.length} <span class="s1">个。</span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;<span class="s1">查看反馈并再次尝试！</span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>`;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>elements.interactiveBack.addEventListener('click', () =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>showScreen('practice');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Favorites management</p>
-<p class="p1"><span class="Apple-converted-space">        </span>elements.viewFavorites.addEventListener('click', () =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>renderFavorites();</p>
-<p class="p1"><span class="Apple-converted-space">            </span>showScreen('favorites');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>});</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>elements.favoritesBack.addEventListener('click', () =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>showScreen('practice');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>});</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Back to Home button</p>
-<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('back-to-home').addEventListener('click', () =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Reset file input</p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.pdfUpload.value = '';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>appState.pdfFile = null;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.processBtn.disabled = true;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Clear error messages</p>
-<p class="p1"><span class="Apple-converted-space">            </span>elements.errorMessages.innerHTML = '';</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Go back to upload screen</p>
-<p class="p1"><span class="Apple-converted-space">            </span>showScreen('upload');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>});</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Initialize the app - load saved state from localStorage if available</p>
-<p class="p1"><span class="Apple-converted-space">        </span>function initializeApp() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const savedWords = loadFromLocalStorage('english_practice_words');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const savedDay = loadFromLocalStorage('english_practice_day');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const savedLearned = loadFromLocalStorage('english_practice_learned');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const savedFavorites = loadFromLocalStorage('english_practice_favorites');</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (savedFavorites) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>appState.favorites = savedFavorites;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>elements.favoritesCount.textContent = appState.favorites.length;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (savedWords) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>appState.words = savedWords;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>appState.pdfProcessed = true;</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>if (savedDay) {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>appState.currentDay = parseInt(savedDay, 10);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>if (savedLearned) {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>appState.learnedWords = parseInt(savedLearned, 10);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>renderTodaysWords();</p>
-<p class="p1"><span class="Apple-converted-space">                </span>showScreen('practice');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Run initialization on DOMContentLoaded</p>
-<p class="p1"><span class="Apple-converted-space">        </span>document.addEventListener('DOMContentLoaded', initializeApp);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
-</body>
-</html>
+<body class="min-h-screen bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-200">
+  <!-- Dark mode detection -->
+  <script>
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.classList.add('dark');
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+      if (event.matches) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    });
+  </script>
+
+  <div class="container mx-auto px-4 py-8 max-w-3xl">
+    <header class="text-center mb-8">
+      <h1 class="text-3xl font-bold text-primary mb-2">每日英语单词学习</h1>
+      <p class="text-gray-600 dark:text-gray-400">每天学习5个新单词，提升你的英语水平。</p>
+    </header>
+
+    <main>
+      <!-- App State Management -->
+      <div id="app-screens">
+        <!-- Initial Screen -->
+        <div id="upload-screen" class="space-y-6">
+          <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-4">上传您的PDF文件</h2>
+            <p class="mb-4">上传一个英语PDF文件，我们将从中提取单词供您学习。</p>
+            <div class="mb-4">
+              <label class="block text-gray-700 dark:text-gray-300 mb-2">选择PDF文件</label>
+              <input type="file" id="pdf-upload" accept="application/pdf" class="block w-full text-base file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100">
+            </div>
+            <div class="flex justify-center gap-4">
+              <button id="process-btn" class="bg-primary hover:bg-primary/90 text-white py-2 px-6 rounded-md font-semibold">处理PDF</button>
+              <button id="debug-btn" class="bg-green-600 hover:bg-green-700 text-white py-2 px-6 rounded-md font-semibold">使用示例数据</button>
+            </div>
+            <div id="error-messages" class="mt-4 text-red-600 dark:text-red-400 text-sm"></div>
+          </div>
+        </div>
+        <!-- Other Screens... -->
+      </div>
+    </main>
+
+    <footer class="mt-12 text-center text-sm text-gray-600 dark:text-gray-400">
+      <p>每日英语单词学习 | <a href="https://github.com/yourusername/english-learning-app" class="text-primary hover:underline">GitHub</a></p>
+    </footer>
+  </div>
+
+  <script>
+    // Global error handler
+    window.onerror = function(message, source, lineno, colno, error) {
+      console.error('全局错误:', message, 'at', source, lineno, colno);
+      const errorEl = document.getElementById('error-messages');
+      if (errorEl) {
+        errorEl.innerHTML += `<div>错误: ${message}</div>`;
+      }
+      return true;
+    };
+
+    // Application state
+    const appState = {
+      words: [],
+      currentDay: 1,
+      wordsPerDay: 5,
+      currentWordIndex: 0,
+      todaysWords: [],
+      learnedWords: 0,
+      pdfFile: null,
+      pdfProcessed: false,
+      audioLoading: false,
+      currentExercise: null,
+      favorites: []
+    };
+
+    // DOM Elements
+    const elements = {
+      screens: {
+        upload: document.getElementById('upload-screen'),
+        processing: document.getElementById('processing-screen'),
+        practice: document.getElementById('practice-screen'),
+        dictation: document.getElementById('dictation-screen'),
+        interactive: document.getElementById('interactive-screen'),
+        favorites: document.getElementById('favorites-screen')
+      },
+      pdfUpload: document.getElementById('pdf-upload'),
+      processBtn: document.getElementById('process-btn'),
+      debugBtn: document.getElementById('debug-btn'),
+      errorMessages: document.getElementById('error-messages'),
+      wordList: document.getElementById('word-list'),
+      currentDay: document.getElementById('current-day'),
+      wordsLearned: document.getElementById('words-learned'),
+      progressBar: document.getElementById('progress-bar'),
+      progressMessage: document.getElementById('progress-message'),
+      processingMessage: document.getElementById('processing-message'),
+      processingProgress: document.getElementById('progress-bar-processing'),
+      processingStatus: document.getElementById('processing-status'),
+      practiceDict: document.getElementById('practice-dictation'),
+      practiceInteractive: document.getElementById('practice-interactive'),
+      viewFavorites: document.getElementById('view-favorites'),
+      favoritesCount: document.getElementById('favorites-count'),
+      favoritesList: document.getElementById('favorites-list'),
+      favoritesBack: document.getElementById('favorites-back'),
+      noFavorites: document.getElementById('no-favorites'),
+      playAudio: document.getElementById('play-audio'),
+      dictationInput: document.getElementById('dictation-input'),
+      dictationFeedback: document.getElementById('dictation-feedback'),
+      checkDictation: document.getElementById('check-dictation'),
+      dictationBack: document.getElementById('dictation-back'),
+      dictationNext: document.getElementById('dictation-next'),
+      exerciseContainer: document.getElementById('exercise-container'),
+      interactiveFeedback: document.getElementById('interactive-feedback'),
+      interactiveBack: document.getElementById('interactive-back'),
+      interactiveSubmit: document.getElementById('interactive-submit'),
+      wordAudio: document.getElementById('word-audio')
+    };
+
+    // Helper functions
+    function showScreen(screenId) {
+      Object.keys(elements.screens).forEach(key => {
+        elements.screens[key].classList.add('hidden');
+      });
+      elements.screens[screenId].classList.remove('hidden');
+    }
+
+    function updateProgressUI() {
+      elements.currentDay.textContent = appState.currentDay;
+      elements.wordsLearned.textContent = `${appState.learnedWords}/${appState.words.length}`;
+
+      const progressPercentage = appState.words.length > 0
+        ? (appState.learnedWords / appState.words.length) * 100
+        : 0;
+      elements.progressBar.style.width = `${progressPercentage}%`;
+
+      if (appState.words.length > 0) {
+        const remainingWords = appState.words.length - appState.learnedWords;
+        const daysLeft = Math.ceil(remainingWords / appState.wordsPerDay);
+        elements.progressMessage.textContent = `还剩 ${remainingWords} 个单词（大约 ${daysLeft} 天）`;
+      }
+    }
+
+    function renderTodaysWords() {
+      elements.wordList.innerHTML = '';
+
+      // Calculate start index for today's words
+      const startIndex = (appState.currentDay - 1) * appState.wordsPerDay;
+      // Get today's words, limited to available words
+      appState.todaysWords = appState.words.slice(startIndex, startIndex + appState.wordsPerDay);
+
+      // Display today's words
+      appState.todaysWords.forEach((wordObj, index) => {
+        const isFavorite = appState.favorites.some(fav => fav.word === wordObj.word);
+        const wordCard = document.createElement('div');
+        wordCard.className = 'bg-gray-100 dark:bg-gray-700 p-4 rounded-md relative';
+        wordCard.innerHTML = `
+          <div class="font-medium text-lg mb-1">${wordObj.word}</div>
+          <div class="text-gray-600 dark:text-gray-400 text-sm mb-2">${wordObj.phonetic || ''}</div>
+          <div class="mb-1"><span class="text-xs font-medium bg-primary/20 text-primary px-2 py-0.5 rounded">${wordObj.pos}</span></div>
+          <div class="text-sm">${wordObj.definition}</div>
+          <button class="favorite-btn absolute top-3 right-3 text-gray-400 dark:text-gray-500 hover:text-yellow-500 dark:hover:text-yellow-400 ${isFavorite ? 'text-yellow-500 dark:text-yellow-400' : ''}" data-word="${wordObj.word}">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.541 1.118L10 13.348l-2.8 2.034c-.786.57-1.841-.197-1.541-1.118l1.07-3.292a1 1 0 00-.364-1.118L3.565 9.719c-.783-.57-.381-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.07-3.292z"/>
+            </svg>
+          </button>
+        `;
+        elements.wordList.appendChild(wordCard);
+      });
+
+      // Add event listeners to favorite buttons
+      document.querySelectorAll('.favorite-btn').forEach(btn => {
+        btn.addEventListener('click', toggleFavorite);
+      });
+
+      // Update progress UI
+      updateProgressUI();
+    }
+
+    function toggleFavorite(e) {
+      const btn = e.currentTarget;
+      const word = btn.getAttribute('data-word');
+      const wordIndex = appState.words.findIndex(w => w.word === word);
+
+      if (wordIndex === -1) return;
+
+      const wordObj = appState.words[wordIndex];
+      const favIndex = appState.favorites.findIndex(fav => fav.word === word);
+
+      if (favIndex === -1) {
+        // Add to favorites
+        appState.favorites.push(wordObj);
+        btn.classList.add('text-yellow-500', 'dark:text-yellow-400');
+        btn.classList.remove('text-gray-400', 'dark:text-gray-500');
+      } else {
+        // Remove from favorites
+        appState.favorites.splice(favIndex, 1);
+        btn.classList.remove('text-yellow-500', 'dark:text-yellow-400');
+        btn.classList.add('text-gray-400', 'dark:text-gray-500');
+      }
+
+      // Update favorites count
+      elements.favoritesCount.textContent = appState.favorites.length;
+
+      // Save favorites to localStorage
+      saveToLocalStorage('english_practice_favorites', appState.favorites);
+    }
+
+    function renderFavorites() {
+      elements.favoritesList.innerHTML = '';
+
+      if (appState.favorites.length === 0) {
+        elements.noFavorites.classList.remove('hidden');
+        return;
+      }
+
+      elements.noFavorites.classList.add('hidden');
+
+      // Display favorite words
+      appState.favorites.forEach((wordObj) => {
+        const wordCard = document.createElement('div');
+        wordCard.className = 'bg-gray-100 dark:bg-gray-700 p-4 rounded-md relative';
+        wordCard.innerHTML = `
+          <div class="font-medium text-lg mb-1">${wordObj.word}</div>
+          <div class="text-gray-600 dark:text-gray-400 text-sm mb-2">${wordObj.phonetic || ''}</div>
+          <div class="mb-1"><span class="text-xs font-medium bg-primary/20 text-primary px-2 py-0.5 rounded">${wordObj.pos}</span></div>
+          <div class="text-sm">${wordObj.definition}</div>
+          <button class="remove-favorite-btn absolute top-3 right-3 text-yellow-500 dark:text-yellow-400 hover:text-red-500 dark:hover:text-red-400" data-word="${wordObj.word}">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.541 1.118L10 13.348l-2.8 2.034c-.786.57-1.841-.197-1.541-1.118l1.07-3.292a1 1 0 00-.364-1.118L3.565 9.719c-.783-.57-.381-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.07-3.292z"/>
+            </svg>
+          </button>
+        `;
+        elements.favoritesList.appendChild(wordCard);
+      });
+
+      // Add event listeners to remove favorite buttons
+      document.querySelectorAll('.remove-favorite-btn').forEach(btn => {
+        btn.addEventListener('click', removeFavorite);
+      });
+    }
+
+    function removeFavorite(e) {
+      const btn = e.currentTarget;
+      const word = btn.getAttribute('data-word');
+      const favIndex = appState.favorites.findIndex(fav => fav.word === word);
+
+      if (favIndex === -1) return;
+
+      // Remove from favorites
+      appState.favorites.splice(favIndex, 1);
+
+      // Update UI
+      renderFavorites();
+
+      // Update favorites count
+      elements.favoritesCount.textContent = appState.favorites.length;
+
+      // Save favorites to localStorage
+      saveToLocalStorage('english_practice_favorites', appState.favorites);
+    }
+
+    function loadWordData(wordsData) {
+      appState.words = wordsData;
+      appState.pdfProcessed = true;
+      appState.currentDay = 1;
+      appState.learnedWords = 0;
+
+      // Set up the practice screen
+      renderTodaysWords();
+      showScreen('practice');
+
+      // Save to localStorage
+      saveToLocalStorage('english_practice_words', appState.words);
+      saveToLocalStorage('english_practice_day', appState.currentDay);
+      saveToLocalStorage('english_practice_learned', appState.learnedWords);
+    }
+
+    // Free Dictionary API
+    async function fetchWordData(word) {
+      try {
+        const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
+        if (!response.ok) {
+          throw new Error('无法获取单词数据');
+        }
+        const data = await response.json();
+
+        if (data && data.length > 0) {
+          const entry = data[0];
+          const meanings = entry.meanings || [];
+          let pos = "unknown";
+          let definition = "No definition available";
+
+          if (meanings.length > 0) {
+            pos = meanings[0].partOfSpeech || "unknown";
+            if (meanings[0].definitions && meanings[0].definitions.length > 0) {
+              definition = meanings[0].definitions[0].definition;
+            }
+          }
+
+          return {
+            word: word,
+            pos: pos,
+            definition: definition,
+            phonetic: entry.phonetic || ""
+          };
+        }
+
+        return null;
+      } catch (error) {
+        console.error("Error fetching word data:", error);
+        return null;
+      }
+    }
+
+    // PDF Processing Functions
+    async function processPdfFile(file) {
+      elements.processingStatus.textContent = "正在加载PDF文件...";
+      elements.processingProgress.style.width = "10%";
+
+      try {
+        // Read PDF file
+        const arrayBuffer = await readFileAsArrayBuffer(file);
+        elements.processingStatus.textContent = "正在解析PDF...";
+        elements.processingProgress.style.width = "20%";
+
+        // Load PDF using PDF.js
+        const pdf = await pdfjsLib.getDocument({data: arrayBuffer}).promise;
+        const numPages = pdf.numPages;
+        elements.processingStatus.textContent = `PDF解析完成，共 ${numPages} 页`;
+        elements.processingProgress.style.width = "30%";
+
+        // Extract text from PDF
+        elements.processingStatus.textContent = "正在提取文本...";
+        let allText = '';
+        for (let i = 1; i <= numPages; i++) {
+          elements.processingStatus.textContent = `正在提取文本 (${i}/${numPages})...`;
+          const page = await pdf.getPage(i);
+          const textContent
